@@ -1,0 +1,20 @@
+name: Github Actions overview
+on: 
+  push: 
+    branches: [main]
+  pull_request:
+    branches: [main]
+    types: [opened, reopened, synchronize]
+  # The shortest interval you can run scheduled 
+  # workflows is once every 5 minutes
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+jobs:
+  first-job:
+    name: First Job 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Greet from first step
+        run: echo "Hello from First Step"
